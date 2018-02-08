@@ -1,5 +1,20 @@
 <p>
   products works!
 </p>
-<a [routerLink] = "['/welcome']">Home</a>
+<a [routerLink]="['/welcome']">Home</a>
+
+
+<ul>
+  <li>
+    <a [routerLink]="['list']">List</a>
+  </li>
+  <li>
+    <a [routerLink]="['categories']">Cotegories</a>
+  </li>
+  <li>
+    <a [routerLink]="['inventory']">Inventory</a>
+  </li>
+</ul>
+
+
 <router-outlet></router-outlet>
