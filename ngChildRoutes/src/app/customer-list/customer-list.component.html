@@ -1,0 +1,8 @@
+<p>
+  customer-list works!
+</p>
+<p *ngFor="let customer of customers">
+  <a [routerLink]="['/customers', customer.id]">{{customer.name}}</a> |
+  <a [routerLink]="['/customers', customer.id, 'orders']">Orders</a> |
+  <a [routerLink]="['/customers', customer.id, 'activity']">Activity</a>
+</p>
