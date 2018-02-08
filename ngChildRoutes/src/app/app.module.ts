@@ -4,12 +4,14 @@ import { RouterModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { BumpsComponent } from './bumps/bumps.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    BumpsComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +19,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 
       [
         { path : '', pathMatch : 'full', redirectTo : 'welcome'},
-        { path : 'welcome', component : WelcomeComponent }]
+        { path : 'welcome', component : WelcomeComponent },
+        { path : 'bum', component : BumpsComponent}
+      ]
     )
   ],
   providers: [],
