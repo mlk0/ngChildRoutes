@@ -1,3 +1,6 @@
 <p>
   help-topic-search works!
 </p>
+<a [routerLink]="['../']">../ will go to the parent route</a> | 
+<a [routerLink]="['topics']">topics will not go anywhere</a> | 
+<a [routerLink]="['../topics']"> ../topics will access the sibling to 'search' which is 'topic'</a>
