@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
@@ -11,6 +10,9 @@ import { ProductCategoriesComponent } from './product-categories/product-categor
 import { ProductInventoryComponent } from './product-inventory/product-inventory.component';
 import { HelpComponent } from './help/help.component';
 
+import { NgModule } from '@angular/core';
+import { HelpTopicsComponent } from './help-topics/help-topics.component';
+import { HelpTopicSearchComponent } from './help-topic-search/help-topic-search.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HelpComponent } from './help/help.component';
     ProductListComponent,
     ProductCategoriesComponent,
     ProductInventoryComponent,
-    HelpComponent
+    HelpComponent,
+    HelpTopicsComponent,
+    HelpTopicSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -34,10 +38,15 @@ import { HelpComponent } from './help/help.component';
           path: 'products', component: ProductsComponent, children: [
             { path: 'list', component: ProductListComponent },
             { path: 'categories', component: ProductCategoriesComponent },
-            { path: 'inventory', component : ProductInventoryComponent}
+            { path: 'inventory', component: ProductInventoryComponent }
           ]
         },
-        { path : 'help', component : HelpComponent}
+        {
+          path: 'help', component: HelpComponent, children: [
+            { path : 'topics', component : HelpTopicsComponent },
+            { path : 'search', component : HelpTopicSearchComponent }
+          ]
+        }
 
       ]
     )

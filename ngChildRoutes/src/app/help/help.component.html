@@ -4,12 +4,19 @@
 <a [routerLink]="['/']">Home</a> |
 <a [routerLink]="['/products']">Products</a>
 <p>
- Acess to all the child routes under products
+  Acess to all the child routes under products
 
-  
+
 </p>
 <p>
   <a [routerLink]="['/products/list']">Product List</a> |
-  <a [routerLink]="['/products/categories']">Product Categories</a> | 
+  <a [routerLink]="['/products/categories']">Product Categories</a> |
   <a [routerLink]="['/products/inventory']">Product Inventory</a>
- </p>
+</p>
+
+<p>Access to it's own child routes</p>
+<p>
+  <a [routerLink]="['topics']">Topics</a>
+  <a [routerLink]="['search']">Search Help</a>
+</p>
+<router-outlet></router-outlet>
