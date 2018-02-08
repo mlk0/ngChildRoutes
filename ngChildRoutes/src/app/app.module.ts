@@ -9,6 +9,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductCategoriesComponent } from './product-categories/product-categories.component';
 import { ProductInventoryComponent } from './product-inventory/product-inventory.component';
+import { HelpComponent } from './help/help.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ProductInventoryComponent } from './product-inventory/product-inventory
     ProductsComponent,
     ProductListComponent,
     ProductCategoriesComponent,
-    ProductInventoryComponent
+    ProductInventoryComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { ProductInventoryComponent } from './product-inventory/product-inventory
             { path: 'categories', component: ProductCategoriesComponent },
             { path: 'inventory', component : ProductInventoryComponent}
           ]
-        }
+        },
+        { path : 'help', component : HelpComponent}
 
       ]
     )
