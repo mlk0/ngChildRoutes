@@ -1,0 +1,7 @@
+<p>
+  flight-list works!
+</p>
+<p *ngFor="let flight of flights">
+  {{flight.from}}-{{flight.to}} 
+  <a [routerLink]="['/flights', {outlets : {'details':[flight.id]}}]">Details</a>
+</p>

@@ -3,7 +3,7 @@ import { RouterModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { BumpsComponent } from './bumps/bumps.component';
+
 import { ProductsComponent } from './products/products.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductCategoriesComponent } from './product-categories/product-categories.component';
@@ -24,12 +24,15 @@ import { CustomerActivityComponent } from './customer-activity/customer-activity
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerSubscriptionComponent } from './customer-subscription/customer-subscription.component';
+import { FlightsComponent } from './flights/flights.component';
+import { FlightListComponent } from './flight-list/flight-list.component';
+import { FlightDetailsComponent } from './flight-details/flight-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    BumpsComponent,
+
     ProductsComponent,
     ProductListComponent,
     ProductCategoriesComponent,
@@ -47,7 +50,10 @@ import { CustomerSubscriptionComponent } from './customer-subscription/customer-
     CustomerActivityComponent,
     CustomerListComponent,
     CustomerComponent,
-    CustomerSubscriptionComponent
+    CustomerSubscriptionComponent,
+    FlightsComponent,
+    FlightListComponent,
+    FlightDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -79,19 +85,26 @@ import { CustomerSubscriptionComponent } from './customer-subscription/customer-
         },
         {
           path: 'customers', component: CustomersComponent, children: [
-              { path : '', redirectTo : 'list', pathMatch : 'full'},
-              { path : 'list', component : CustomerListComponent },
-              { path : 'subscription', component : CustomerSubscriptionComponent}
-             
+            { path: '', redirectTo: 'list', pathMatch: 'full' },
+            { path: 'list', component: CustomerListComponent },
+            { path: 'subscription', component: CustomerSubscriptionComponent }
+
           ]
         },
         {
           path: 'customers/:id', component: CustomerComponent, children: [
-              { path : '', redirectTo : 'overview', pathMatch : 'full'},
-             
-              { path : 'overview', component : CustomerDetailsComponent },
-              { path : 'orders', component : CustomerOrdersComponent },
-              { path : 'activity', component : CustomerActivityComponent }
+            { path: '', redirectTo: 'overview', pathMatch: 'full' },
+
+            { path: 'overview', component: CustomerDetailsComponent },
+            { path: 'orders', component: CustomerOrdersComponent },
+            { path: 'activity', component: CustomerActivityComponent }
+          ]
+        },
+        {
+          path: 'flights', component: FlightsComponent, children: [
+            { path: 'list', component: FlightListComponent, outlet: 'master' },
+            { path: 'itinerary', component: FlightDetailsComponent, outlet: 'details' },
+            { path: ':id', component: FlightDetailsComponent, outlet: 'details' }
           ]
         }
 
