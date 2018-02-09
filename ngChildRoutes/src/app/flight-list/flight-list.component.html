@@ -3,5 +3,8 @@
 </p>
 <p *ngFor="let flight of flights">
   {{flight.from}}-{{flight.to}} 
-  <a [routerLink]="['/flights', {outlets : {'details':[flight.id]}}]">Details</a>
+  <a [routerLink]="['/flights', {outlets : {'details':[flight.id]}}]">Details</a> |
+  <!-- <a [routerLink]="['/flights/bla', {outlets : {'details':[flight.id]}}]">Details</a> -->
+  <a [routerLink]="['/flights', {outlets : {'details':[flight.id,'tst']}}]">Details</a> |
+  
 </p>

@@ -104,7 +104,11 @@ import { FlightDetailsComponent } from './flight-details/flight-details.componen
           path: 'flights', component: FlightsComponent, children: [
             { path: 'list', component: FlightListComponent, outlet: 'master' },
             { path: 'itinerary', component: FlightDetailsComponent, outlet: 'details' },
-            { path: ':id', component: FlightDetailsComponent, outlet: 'details' }
+            { path: ':id', component: FlightDetailsComponent, outlet: 'details' },
+            { path: ':id/tst', component: FlightDetailsComponent, outlet: 'details' },
+
+            { path: 'itinerary:showStatus', component: FlightDetailsComponent, outlet: 'details' }
+    
           ]
         }
 

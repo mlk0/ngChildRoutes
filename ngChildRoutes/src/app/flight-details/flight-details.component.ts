@@ -15,8 +15,10 @@ export class FlightDetailsComponent implements OnInit {
 
   ngOnInit() {
 
-     this.activatedRoute.params.subscribe(p=>
-      this.selectedFlightId = +p["id"]
+     this.activatedRoute.params.subscribe(
+       p=>
+      this.selectedFlightId = 
+      +p["id"]
     )  
   }
 

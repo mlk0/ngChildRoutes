@@ -18,10 +18,12 @@ export class WelcomeComponent implements OnInit {
       [
         '/flights', { 
                       outlets : { 
-                        'master' : ['list'], 
+                        'master' : ['list',{ page: 1, color : 'red' } ], 
                         'details' : ['itinerary'] 
                       }
-                    }])
+                    }], 
+                    { queryParams: { page: 1 } }
+                  )
 
   }
 }
