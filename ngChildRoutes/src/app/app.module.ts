@@ -9,11 +9,12 @@ import { WelcomeComponent } from './welcome/welcome.component';
 // import { ProductCategoriesComponent } from './product-categories/product-categories.component';
 // import { ProductInventoryComponent } from './product-inventory/product-inventory.component';
 
-import { HelpComponent } from './help/help.component';
+// import { HelpComponent } from './help/help.component';
+// import { HelpTopicsComponent } from './help-topics/help-topics.component';
+// import { HelpTopicSearchComponent } from './help-topic-search/help-topic-search.component';
 
 import { NgModule } from '@angular/core';
-import { HelpTopicsComponent } from './help-topics/help-topics.component';
-import { HelpTopicSearchComponent } from './help-topic-search/help-topic-search.component';
+
 import { UsersComponent } from './users/users.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserAdminListComponent } from './user-admib-list/user-admib-list.component';
@@ -30,6 +31,7 @@ import { FlightListComponent } from './flight-list/flight-list.component';
 import { FlightDetailsComponent } from './flight-details/flight-details.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { ProductModule } from './product/product.module';
+import { AidModule } from './aid/aid.module';
 
 @NgModule({
   declarations: [
@@ -41,9 +43,10 @@ import { ProductModule } from './product/product.module';
     // ProductCategoriesComponent,
     // ProductInventoryComponent,
     
-    HelpComponent,
-    HelpTopicsComponent,
-    HelpTopicSearchComponent,
+    // HelpComponent,
+    // HelpTopicsComponent,
+    // HelpTopicSearchComponent,
+
     UsersComponent,
     UserListComponent,
     UserAdminListComponent,
@@ -63,6 +66,9 @@ import { ProductModule } from './product/product.module';
   imports: [
     BrowserModule,
     ProductModule,
+    
+    AidModule,
+
     AppRoutingModule,
 
     // RouterModule.forRoot(

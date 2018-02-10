@@ -6,9 +6,12 @@ import { WelcomeComponent } from '../welcome/welcome.component';
 // import { ProductListComponent } from '../product-list/product-list.component';
 // import { ProductCategoriesComponent } from '../product-categories/product-categories.component';
 // import { ProductInventoryComponent } from '../product-inventory/product-inventory.component';
-import { HelpComponent } from '../help/help.component';
-import { HelpTopicsComponent } from '../help-topics/help-topics.component';
-import { HelpTopicSearchComponent } from '../help-topic-search/help-topic-search.component';
+
+// import { HelpComponent } from '../help/help.component';
+// import { HelpTopicsComponent } from '../help-topics/help-topics.component';
+// import { HelpTopicSearchComponent } from '../help-topic-search/help-topic-search.component';
+
+
 import { UsersComponent } from '../users/users.component';
 import { UserListComponent } from '../user-list/user-list.component';
 import { UserAdminListComponent } from '../user-admib-list/user-admib-list.component';
@@ -39,12 +42,12 @@ import { FlightDetailsComponent } from '../flight-details/flight-details.compone
         //     { path: 'inventory', component: ProductInventoryComponent }
         //   ]
         // },
-        {
-          path: 'help', component: HelpComponent, children: [
-            { path: 'topics', component: HelpTopicsComponent },
-            { path: 'search', component: HelpTopicSearchComponent }
-          ]
-        },
+        // {
+        //   path: 'help', component: HelpComponent, children: [
+        //     { path: 'topics', component: HelpTopicsComponent },
+        //     { path: 'search', component: HelpTopicSearchComponent }
+        //   ]
+        // },
         {
           path: 'users', component: UsersComponent, children: [
             { path: '', redirectTo: 'list', pathMatch: 'full' },
