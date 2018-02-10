@@ -4,10 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
-import { ProductsComponent } from './products/products.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductCategoriesComponent } from './product-categories/product-categories.component';
-import { ProductInventoryComponent } from './product-inventory/product-inventory.component';
+// import { ProductsComponent } from './products/products.component';
+// import { ProductListComponent } from './product-list/product-list.component';
+// import { ProductCategoriesComponent } from './product-categories/product-categories.component';
+// import { ProductInventoryComponent } from './product-inventory/product-inventory.component';
+
 import { HelpComponent } from './help/help.component';
 
 import { NgModule } from '@angular/core';
@@ -28,16 +29,18 @@ import { FlightsComponent } from './flights/flights.component';
 import { FlightListComponent } from './flight-list/flight-list.component';
 import { FlightDetailsComponent } from './flight-details/flight-details.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
 
-    ProductsComponent,
-    ProductListComponent,
-    ProductCategoriesComponent,
-    ProductInventoryComponent,
+    // ProductsComponent,
+    // ProductListComponent,
+    // ProductCategoriesComponent,
+    // ProductInventoryComponent,
+    
     HelpComponent,
     HelpTopicsComponent,
     HelpTopicSearchComponent,
@@ -59,6 +62,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
   ],
   imports: [
     BrowserModule,
+    ProductModule,
     AppRoutingModule,
 
     // RouterModule.forRoot(
