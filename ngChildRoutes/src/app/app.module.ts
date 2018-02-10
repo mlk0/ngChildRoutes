@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from "@angular/router";
+// import { Routegit rModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
