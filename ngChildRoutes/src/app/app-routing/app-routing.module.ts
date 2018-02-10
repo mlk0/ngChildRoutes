@@ -12,10 +12,11 @@ import { WelcomeComponent } from '../welcome/welcome.component';
 // import { HelpTopicSearchComponent } from '../help-topic-search/help-topic-search.component';
 
 
-import { UsersComponent } from '../users/users.component';
-import { UserListComponent } from '../user-list/user-list.component';
-import { UserAdminListComponent } from '../user-admib-list/user-admib-list.component';
-import { UserDetailsComponent } from '../user-details/user-details.component';
+// import { UsersComponent } from '../users/users.component';
+// import { UserListComponent } from '../user-list/user-list.component';
+// import { UserAdminListComponent } from '../user-admib-list/user-admib-list.component';
+// import { UserDetailsComponent } from '../user-details/user-details.component';
+
 import { CustomersComponent } from '../customers/customers.component';
 import { CustomerListComponent } from '../customer-list/customer-list.component';
 import { CustomerSubscriptionComponent } from '../customer-subscription/customer-subscription.component';
@@ -48,14 +49,14 @@ import { FlightDetailsComponent } from '../flight-details/flight-details.compone
         //     { path: 'search', component: HelpTopicSearchComponent }
         //   ]
         // },
-        {
-          path: 'users', component: UsersComponent, children: [
-            { path: '', redirectTo: 'list', pathMatch: 'full' },
-            { path: 'list', component: UserListComponent },
-            { path: 'admins', component: UserAdminListComponent },
-            { path: ':id', component: UserDetailsComponent },
-          ]
-        },
+        // {
+        //   path: 'users', component: UsersComponent, children: [
+        //     { path: '', redirectTo: 'list', pathMatch: 'full' },
+        //     { path: 'list', component: UserListComponent },
+        //     { path: 'admins', component: UserAdminListComponent },
+        //     { path: ':id', component: UserDetailsComponent },
+        //   ]
+        // },
         {
           path: 'customers', component: CustomersComponent, children: [
             { path: '', redirectTo: 'list', pathMatch: 'full' },

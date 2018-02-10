@@ -15,10 +15,11 @@ import { WelcomeComponent } from './welcome/welcome.component';
 
 import { NgModule } from '@angular/core';
 
-import { UsersComponent } from './users/users.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserAdminListComponent } from './user-admib-list/user-admib-list.component';
-import { UserDetailsComponent } from './user-details/user-details.component';
+// import { UsersComponent } from './users/users.component';
+// import { UserListComponent } from './user-list/user-list.component';
+// import { UserAdminListComponent } from './user-admib-list/user-admib-list.component';
+// import { UserDetailsComponent } from './user-details/user-details.component';
+
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { CustomerOrdersComponent } from './customer-orders/customer-orders.component';
@@ -32,6 +33,7 @@ import { FlightDetailsComponent } from './flight-details/flight-details.componen
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { ProductModule } from './product/product.module';
 import { AidModule } from './aid/aid.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -47,10 +49,11 @@ import { AidModule } from './aid/aid.module';
     // HelpTopicsComponent,
     // HelpTopicSearchComponent,
 
-    UsersComponent,
-    UserListComponent,
-    UserAdminListComponent,
-    UserDetailsComponent,
+    // UsersComponent,
+    // UserListComponent,
+    // UserAdminListComponent,
+    // UserDetailsComponent,
+
     CustomersComponent,
     CustomerDetailsComponent,
     CustomerOrdersComponent,
@@ -68,6 +71,7 @@ import { AidModule } from './aid/aid.module';
     ProductModule,
     
     AidModule,
+    UserModule,
 
     AppRoutingModule,
 
