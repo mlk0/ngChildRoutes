@@ -27,6 +27,7 @@ import { CustomerSubscriptionComponent } from './customer-subscription/customer-
 import { FlightsComponent } from './flights/flights.component';
 import { FlightListComponent } from './flight-list/flight-list.component';
 import { FlightDetailsComponent } from './flight-details/flight-details.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -54,67 +55,73 @@ import { FlightDetailsComponent } from './flight-details/flight-details.componen
     FlightsComponent,
     FlightListComponent,
     FlightDetailsComponent
+    
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
+    AppRoutingModule,
 
-      [
-        { path: '', pathMatch: 'full', redirectTo: 'welcome' },
-        { path: 'welcome', component: WelcomeComponent },
-        {
-          path: 'products', component: ProductsComponent, children: [
-            { path: 'list', component: ProductListComponent },
-            { path: 'categories', component: ProductCategoriesComponent },
-            { path: 'inventory', component: ProductInventoryComponent }
-          ]
-        },
-        {
-          path: 'help', component: HelpComponent, children: [
-            { path: 'topics', component: HelpTopicsComponent },
-            { path: 'search', component: HelpTopicSearchComponent }
-          ]
-        },
-        {
-          path: 'users', component: UsersComponent, children: [
-            { path: '', redirectTo: 'list', pathMatch: 'full' },
-            { path: 'list', component: UserListComponent },
-            { path: 'admins', component: UserAdminListComponent },
-            { path: ':id', component: UserDetailsComponent },
-          ]
-        },
-        {
-          path: 'customers', component: CustomersComponent, children: [
-            { path: '', redirectTo: 'list', pathMatch: 'full' },
-            { path: 'list', component: CustomerListComponent },
-            { path: 'subscription', component: CustomerSubscriptionComponent }
+    // RouterModule.forRoot(
 
-          ]
-        },
-        {
-          path: 'customers/:id', component: CustomerComponent, children: [
-            { path: '', redirectTo: 'overview', pathMatch: 'full' },
+    //   [
+    //     { path: '', pathMatch: 'full', redirectTo: 'welcome' },
+    //     { path: 'welcome', component: WelcomeComponent },
+    //     {
+    //       path: 'products', component: ProductsComponent, children: [
+    //         { path: 'list', component: ProductListComponent },
+    //         { path: 'categories', component: ProductCategoriesComponent },
+    //         { path: 'inventory', component: ProductInventoryComponent }
+    //       ]
+    //     },
+    //     {
+    //       path: 'help', component: HelpComponent, children: [
+    //         { path: 'topics', component: HelpTopicsComponent },
+    //         { path: 'search', component: HelpTopicSearchComponent }
+    //       ]
+    //     },
+    //     {
+    //       path: 'users', component: UsersComponent, children: [
+    //         { path: '', redirectTo: 'list', pathMatch: 'full' },
+    //         { path: 'list', component: UserListComponent },
+    //         { path: 'admins', component: UserAdminListComponent },
+    //         { path: ':id', component: UserDetailsComponent },
+    //       ]
+    //     },
+    //     {
+    //       path: 'customers', component: CustomersComponent, children: [
+    //         { path: '', redirectTo: 'list', pathMatch: 'full' },
+    //         { path: 'list', component: CustomerListComponent },
+    //         { path: 'subscription', component: CustomerSubscriptionComponent }
 
-            { path: 'overview', component: CustomerDetailsComponent },
-            { path: 'orders', component: CustomerOrdersComponent },
-            { path: 'activity', component: CustomerActivityComponent }
-          ]
-        },
-        {
-          path: 'flights', component: FlightsComponent, children: [
-            { path: 'list', component: FlightListComponent, outlet: 'master' },
-            { path: 'itinerary', component: FlightDetailsComponent, outlet: 'details' },
-            { path: ':id', component: FlightDetailsComponent, outlet: 'details' },
-            { path: ':id/tst', component: FlightDetailsComponent, outlet: 'details' },
+    //       ]
+    //     },
+    //     {
+    //       path: 'customers/:id', component: CustomerComponent, children: [
+    //         { path: '', redirectTo: 'overview', pathMatch: 'full' },
 
-            { path: 'itinerary:showStatus', component: FlightDetailsComponent, outlet: 'details' }
+    //         { path: 'overview', component: CustomerDetailsComponent },
+    //         { path: 'orders', component: CustomerOrdersComponent },
+    //         { path: 'activity', component: CustomerActivityComponent }
+    //       ]
+    //     },
+    //     {
+    //       path: 'flights', component: FlightsComponent, children: [
+    //         { path: 'list', component: FlightListComponent, outlet: 'master' },
+    //         { path: 'itinerary', component: FlightDetailsComponent, outlet: 'details' },
+    //         { path: ':id', component: FlightDetailsComponent, outlet: 'details' },
+    //         { path: ':id/tst', component: FlightDetailsComponent, outlet: 'details' },
+
+    //         { path: 'itinerary:showStatus', component: FlightDetailsComponent, outlet: 'details' }
     
-          ]
-        }
+    //       ]
+    //     }
 
 
-      ]
-    )
+    //   ]
+    // )
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
