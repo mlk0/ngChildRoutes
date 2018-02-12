@@ -11,7 +11,6 @@ import { RouterLink, Router } from '@angular/router';
 })
 export class HelpComponent implements OnInit {
 
-  errors : any[];
   fg: FormGroup;
   constructor(private fb: FormBuilder, private router : Router) {
     this.fg = fb.group({});
@@ -19,13 +18,17 @@ export class HelpComponent implements OnInit {
     //let keyWordControl = fb.control('', Validators.compose([Validators.pattern('^[a-zA-Z ]+$'), Validators.maxLength(5)]));
     //this.fg.addControl('keyWord', keyWordControl);
 
-    let topicIdControl = fb.control('', Validators.compose([Validators.required, Validators.pattern('^[0-9]+$')]) );
+    let topicIdControl = fb.control('', Validators.compose(
+      [
+        Validators.required, 
+        Validators.min(100), 
+        Validators.max(200), 
+        Validators.pattern('^[0-9]+$')
+      ]
+    ) 
+  );
     this.fg.addControl('topicId', topicIdControl)
-    
-
-
-    this.errors = [];
-
+ 
   }
 
   ngOnInit() {
@@ -42,8 +45,9 @@ export class HelpComponent implements OnInit {
       return;
     }
     
-
-    //
+    else{
+    
+      //
     Object.keys(this.fg.controls).forEach(c => {
       //console.log(c);
 
@@ -64,29 +68,27 @@ export class HelpComponent implements OnInit {
         
         errorObject = Object.assign(errorObject, {} , { errorType : e , details : []});
 
-       // this.formErrors.push({ validationType : formControlError[0].key})
-      
-        // for(let key in formControlError){
-        //   console.log(`key : ${key}`);
-        //   let keyValue = formControlError[key];
-        //   console.log(` keyValue : ${keyValue}`);
-        // }
+
       
         Object.keys(formControlError).forEach(key=>{
           console.log(`key : ${key}`);
           let keyValue = formControlError[key];
           console.log(` keyValue : ${keyValue}`);
 
-          errorObject = Object.assign(errorObject, errorObject, { details : [ { key : keyValue }]} )
-
+          let jsonVariable = {};
+          jsonVariable[key]=keyValue;
+          errorObject['details'].push(jsonVariable);
+          
         })
 
         
       })
-
-      this.errors.push(errorObject);
-      let a;
+      console.log(errorObject);
+       
     })
+
+    }
+    
 
 
   }

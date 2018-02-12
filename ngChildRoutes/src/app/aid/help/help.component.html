@@ -25,40 +25,28 @@
 
   <form [formGroup]="fg" (ngSubmit)='submit(fg.value)'>
     <!-- <input type='text' [formControl]="fg.controls['keyWord']"> -->
-    <input type="text" [formControl]="fg.controls['topicId']"/>
-    <button type="submit"
-    [disabled]="!fg.valid"
-    >
-    Submit</button>
+    <input type="text" [formControl]="fg.controls['topicId']" />
+    <button type="submit" [disabled]="!fg.valid">
+      Submit</button>
 
-    <button type="submit" 
-     >
-    Submit</button>
-   
-   <span *ngIf="fg.dirty && !fg.valid" >General Form Error</span>
+    <button type="submit">
+      Submit</button>
+
+    <span *ngIf="fg.dirty && !fg.valid">General Form Error</span>
     <ul *ngIf="fg.dirty && !fg.valid">
       <li *ngFor="let error of fg.errors">
         {{error}}
       </li>
     </ul>
-<ul>
-  <li *ngFor="let error of fg.errors">
-    {{error}}
-  </li>
-
-  <ul>
-    <li *ngFor="let error of fg.errors">{{error}}</li>
-  </ul>
-
-</ul>
-
-
-{{fg.errors}}
-
-  </form>
-  
-Form Errors:
-{{errors}}
-
+    <div>
+      <p>despite the expectations that fg.errors will list all the form group errors this is always empty this is known issue
+        and angular team will not address it due inabillity to generalize all the errors under a common format
+      </p>
+      <ul>
+        <li *ngFor="let error of fg.errors">{{error}}</li>
+      </ul>
+    </div>
+   </form>
+ 
 </div>
 <router-outlet></router-outlet>
