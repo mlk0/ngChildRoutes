@@ -19,4 +19,46 @@
   <a [routerLink]="['topics']">Topics</a>
   <a [routerLink]="['search']">Search Help</a>
 </p>
+<div>
+  Sample with required route parameter
+  <!-- <a [routerLink]="['topics',12345]">Select Topic</a> -->
+
+  <form [formGroup]="fg" (ngSubmit)='submit(fg.value)'>
+    <!-- <input type='text' [formControl]="fg.controls['keyWord']"> -->
+    <input type="text" [formControl]="fg.controls['topicId']"/>
+    <button type="submit"
+    [disabled]="!fg.valid"
+    >
+    Submit</button>
+
+    <button type="submit" 
+     >
+    Submit</button>
+   
+   <span *ngIf="fg.dirty && !fg.valid" >General Form Error</span>
+    <ul *ngIf="fg.dirty && !fg.valid">
+      <li *ngFor="let error of fg.errors">
+        {{error}}
+      </li>
+    </ul>
+<ul>
+  <li *ngFor="let error of fg.errors">
+    {{error}}
+  </li>
+
+  <ul>
+    <li *ngFor="let error of fg.errors">{{error}}</li>
+  </ul>
+
+</ul>
+
+
+{{fg.errors}}
+
+  </form>
+  
+Form Errors:
+{{errors}}
+
+</div>
 <router-outlet></router-outlet>

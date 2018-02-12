@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-help-topics',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpTopicsComponent implements OnInit {
 
-  constructor() { }
+  topicId: number;
+  constructor(private activatedRoute : ActivatedRoute) { }
+ 
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(params=>this.topicId = +params['topicId']);
   }
 
 }
