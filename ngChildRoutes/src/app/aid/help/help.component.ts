@@ -11,6 +11,10 @@ import { RouterLink, Router } from '@angular/router';
 })
 export class HelpComponent implements OnInit {
 
+  htmlFormat = {name : "Html Page", formatCode : "HTML"}
+  pdfFormat = {name : "Portable Document Format", formatCode : "PDF"}
+  wordFormat = {name : "Word Document", formatCode : "DOCX"}
+
   languages : any[] = [
     {name : 'English', code : 'EN'},
     {name : 'French', code : 'FR'}
@@ -21,6 +25,7 @@ export class HelpComponent implements OnInit {
     this.fg = fb.group({});
 
     
+
     //this.fg.addControl('keyWord', keyWordControl);
 
     let topicIdControl = fb.control('', Validators.compose(
@@ -38,15 +43,31 @@ export class HelpComponent implements OnInit {
     this.fg.addControl('topicCode', topicCode);
 
 
-    let language = fb.control('EN', Validators.compose([  Validators.pattern('(EN|FR)')]));//, Validators.pattern('(EN|FR)\b')]))
+    let language = fb.control('', Validators.compose([  Validators.pattern('(EN|FR)')]));//, Validators.pattern('(EN|FR)\b')]))
     this.fg.addControl('languageCode', language);
+
+
+    //sample with a deafult selection
+    let formatControl = fb.control(this.pdfFormat);//, Validators.required);
+    
+    //sample with initialization where none of the radio controls is selected
+    // let formatControl = fb.control(null);//, Validators.required);
+    this.fg.addControl('format', formatControl);
+
+
+    let includeArchivedControl = fb.control(true);
+    this.fg.addControl('includeArchived', includeArchivedControl);
+
 
   }
 
   ngOnInit() {
   }
 
-
+  clearFormatSelection(){
+    this.fg.controls['format'].setValue(null);
+    
+  }
 
   submit(formValues: any) {
     console.log(formValues);
@@ -56,7 +77,11 @@ export class HelpComponent implements OnInit {
       
       // this.router.navigate(['help/topics', formValues['topicId']]);
 
-      this.router.navigate(['help/topics', formValues['topicId'], { topicKey : formValues['topicCode'], language : formValues['languageCode']} ]);
+      this.router.navigate(['help/topics', formValues['topicId'], { topicKey : formValues['topicCode'], language : formValues['languageCode']} ]
+      , {queryParams : {exportFormat : formValues['format'] ? formValues['format'].formatCode : null,
+                          listArchived : formValues['includeArchived']  }}
+    
+    );
     }
 
     else {

@@ -1,4 +1,4 @@
-<p>
+<!-- <p>
   help works!
 </p>
 <a [routerLink]="['/']">Home</a> |
@@ -23,14 +23,14 @@
   Sample with required route parameter
   <!-- <a [routerLink]="['topics',12345]">Select Topic</a> -->
 
-  <form [formGroup]="fg" (ngSubmit)='submit(fg.value)'>
-    <!-- <input type='text' [formControl]="fg.controls['keyWord']"> -->
-    <div>
-      <label for="topicID">Topic ID</label>
-      <input type="text" [formControl]="fg.controls['topicId']" name="topicID" />
-    </div>
-    <div>
-      <label for="keyTopic">Key Topic</label>
+<form [formGroup]="fg" (ngSubmit)='submit(fg.value)'>
+  <!-- <input type='text' [formControl]="fg.controls['keyWord']"> -->
+  <div>
+    <label for="topicID">Topic ID</label>
+    <input type="text" [formControl]="fg.controls['topicId']" name="topicID" />
+  </div>
+  <div>
+    <label for="keyTopic">Key Topic</label>
     <input type="text" [formControl]="fg.controls['topicCode']" name="keyTopic">
   </div>
   <div>
@@ -40,36 +40,68 @@
   </div>
 
   <div>
-      <label for="languageS" >Language</label>
-      
-      <select name = "languageS" formControlName = "languageCode">
-        <option *ngFor="let language of languages" [ngValue]="language.code">{{language.name}}</option>
-      </select>
-      
-    </div>
+    <label for="languageS">Language</label>
 
+    <select name="languageS" formControlName="languageCode">
+      <option *ngFor="let language of languages" [ngValue]="language.code">{{language.name}}</option>
+    </select>
 
-     <button type="submit" [disabled]="!fg.valid"> Submit
-    </button>
+  </div>
 
-    <button type="submit">
-      Submit</button>
+  <div>
 
-    <span *ngIf="fg.dirty && !fg.valid">General Form Error</span>
-    <ul *ngIf="fg.dirty && !fg.valid">
-      <li *ngFor="let error of fg.errors">
-        {{error}}
-      </li>
-    </ul>
     <div>
-      <p>despite the expectations that fg.errors will list all the form group errors this is always empty this is known issue
-        and angular team will not address it due inabillity to generalize all the errors under a common format
+      Export Format
+      <p>
+        <label>
+          <input type="radio" formControlName="format" [value]='htmlFormat'> {{htmlFormat.name}} ({{htmlFormat.formatCode}})
+        </label>
       </p>
-      <ul>
-        <li *ngFor="let error of fg.errors">{{error}}</li>
-      </ul>
-    </div>
-  </form>
 
+      <p>
+        <label>
+          <input type="radio" formControlName="format" [value]='pdfFormat'> {{pdfFormat.name}} ({{pdfFormat.formatCode}})
+        </label>
+      </p>
+
+      <p>
+        <label>
+          <input type="radio" formControlName="format" [value]='wordFormat'> {{wordFormat.name}} ({{wordFormat.formatCode}})
+        </label>
+      </p>
+
+      </div>
+
+<div>
+  <label>Include Archived 
+    <input type="checkbox" name="bla" [formControl]="fg.controls['includeArchived']"  >
+  </label>
 </div>
+  </div>
+
+
+  <button type="submit" [disabled]="!fg.valid"> Submit
+  </button>
+
+  <button type="submit">
+    Submit</button>
+
+  <span *ngIf="fg.dirty && !fg.valid">General Form Error</span>
+  <ul *ngIf="fg.dirty && !fg.valid">
+    <li *ngFor="let error of fg.errors">
+      {{error}}
+    </li>
+  </ul>
+  <div>
+    <p>despite the expectations that fg.errors will list all the form group errors this is always empty this is known issue
+      and angular team will not address it due inabillity to generalize all the errors under a common format
+    </p>
+    <ul>
+      <li *ngFor="let error of fg.errors">{{error}}</li>
+    </ul>
+  </div>
+</form>
+
+<button (click)="clearFormatSelection()">Clear Format Selection</button>
+   
 <router-outlet></router-outlet>

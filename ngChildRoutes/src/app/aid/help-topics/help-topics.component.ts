@@ -8,6 +8,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HelpTopicsComponent implements OnInit {
 
+  
+  showArchived: any;
+  exportDocumentFormat: any;
   languageCode: any;
   code: string;
   topicId: number;
@@ -20,9 +23,14 @@ export class HelpTopicsComponent implements OnInit {
       this.code = params['topicKey'];
       this.languageCode = params['language'];
     }
+  );
 
 
-    );
+  this.activatedRoute.queryParams.subscribe(qp=>{
+    this.exportDocumentFormat = qp['exportFormat'];
+    this.showArchived = qp['listArchived']
+  });
+
   }
 
 }
