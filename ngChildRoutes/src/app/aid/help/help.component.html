@@ -25,9 +25,32 @@
 
   <form [formGroup]="fg" (ngSubmit)='submit(fg.value)'>
     <!-- <input type='text' [formControl]="fg.controls['keyWord']"> -->
-    <input type="text" [formControl]="fg.controls['topicId']" />
-    <button type="submit" [disabled]="!fg.valid">
-      Submit</button>
+    <div>
+      <label for="topicID">Topic ID</label>
+      <input type="text" [formControl]="fg.controls['topicId']" name="topicID" />
+    </div>
+    <div>
+      <label for="keyTopic">Key Topic</label>
+    <input type="text" [formControl]="fg.controls['topicCode']" name="keyTopic">
+  </div>
+  <div>
+    <label for="language">Language</label>
+    <input type="text" [formControl]="fg.controls['languageCode']" name="language">
+
+  </div>
+
+  <div>
+      <label for="languageS" >Language</label>
+      
+      <select name = "languageS" formControlName = "languageCode">
+        <option *ngFor="let language of languages" [ngValue]="language.code">{{language.name}}</option>
+      </select>
+      
+    </div>
+
+
+     <button type="submit" [disabled]="!fg.valid"> Submit
+    </button>
 
     <button type="submit">
       Submit</button>
@@ -46,7 +69,7 @@
         <li *ngFor="let error of fg.errors">{{error}}</li>
       </ul>
     </div>
-   </form>
- 
+  </form>
+
 </div>
 <router-outlet></router-outlet>

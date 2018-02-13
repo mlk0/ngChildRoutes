@@ -3,3 +3,5 @@
 </p>
 <a [routerLink]="['../search']">help search</a>
 <p>Selected Topic : {{topicId}}</p>
+<p *ngIf='code'>Selected Topic Code : {{code}}</p>
+<p *ngIf='languageCode'>Selected language Code : {{languageCode}}</p>

@@ -8,12 +8,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HelpTopicsComponent implements OnInit {
 
+  languageCode: any;
+  code: string;
   topicId: number;
-  constructor(private activatedRoute : ActivatedRoute) { }
- 
+  constructor(private activatedRoute: ActivatedRoute) { }
+
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params=>this.topicId = +params['topicId']);
+    this.activatedRoute.params.subscribe(params => { 
+      this.topicId = +params['topicId'];
+      this.code = params['topicKey'];
+      this.languageCode = params['language'];
+    }
+
+
+    );
   }
 
 }
