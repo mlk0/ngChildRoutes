@@ -34,7 +34,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { ProductModule } from './product/product.module';
 import { AidModule } from './aid/aid.module';
 import { UserModule } from './user/user.module';
-
+import { PhotoAlbumModule } from './photo-album/photo-album.module';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +73,7 @@ import { UserModule } from './user/user.module';
     
     AidModule,
     UserModule,
-
+   PhotoAlbumModule,
     AppRoutingModule,
 
     // RouterModule.forRoot(
